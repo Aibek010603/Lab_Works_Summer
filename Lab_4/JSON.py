@@ -1,20 +1,27 @@
 import json
-
-# Read data from the JSON file
-with open('sample-data.json', 'r') as file:
-    data = json.load(file)
-
-# Print the header
-print("Interface Status")
-print("=" * 80)
-print("{:<50}{:<25}{:<8}{:<6}".format("DN", "Description", "Speed", "MTU"))
-print("-" * 80)
-
-# Print interface status data
-for entry in data['imdata']:
-    dn = entry['fabricEthEstc']['attributes']['dn']
-    description = entry['fabricEthEstc']['attributes'].get('descr', '')
-    speed = entry['fabricEthEstc']['attributes'].get('speed', 'inherit')
-    mtu = entry['fabricEthEstc']['attributes'].get('mtu', '')
-
-    print("{:<50}{:<25}{:<8}{:<6}".format(dn, description, speed, mtu))
+'''
+Interface Status
+================================================================================
+DN                                                 Description           Speed    MTU  
+-------------------------------------------------- --------------------  ------  ------
+topology/pod-1/node-201/sys/phys-[eth1/33]                              inherit   9150
+topology/pod-1/node-201/sys/phys-[eth1/34]                              inherit   9150
+topology/pod-1/node-201/sys/phys-[eth1/35]                              inherit   9150
+'''
+ 
+file_path = r"c:\Users\toleg\OneDrive\абочий стол\Lab_Works_Summer\Lab_Works_Summer\Lab_4\JSON.py"
+ 
+with open(file_path, "r") as f:
+    a = f.read()
+data = json.loads(a)
+a = b = c = d = ""
+print("""Interface Status
+================================================================================
+DN                                                 Description           Speed    MTU  
+-------------------------------------------------- --------------------  ------  ------""")
+for i in range(len(data["imdata"])):
+    a = data["imdata"][i]["l1PhysIf"]["attributes"]["dn"]
+    b = data["imdata"][i]["l1PhysIf"]["attributes"]["descr"]
+    c = data["imdata"][i]["l1PhysIf"]["attributes"]["speed"]
+    d = data["imdata"][i]["l1PhysIf"]["attributes"]["mtu"]
+    print("{:<49}{:<23}{:<7}  ".format(a,b,c), d )
