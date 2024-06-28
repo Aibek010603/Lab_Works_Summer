@@ -1,4 +1,4 @@
-import json
+import json   # (JavaScript Object Notation) 
 
 file_path = r"c:\Users\toleg\OneDrive\Рабочий стол\PP2_Sum_Aibek\Lab_Works_Summer\Lab_4\sample-data.json"
 
