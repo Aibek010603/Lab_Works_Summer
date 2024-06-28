@@ -1,6 +1,6 @@
 import itertools
 
-def print_permutations(s):
+def print_permutations(s):              # принимает один аргумент s, который представляет собой строку
     for p in itertools.permutations(s):
         print(''.join(p))
 
