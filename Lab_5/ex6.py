@@ -2,6 +2,6 @@ import re
  
  
 list =input()
-find = re.findall("[A-Z][a-z]", list)
+find = re.sub("[,. ]", ":", list)
    
 print(find)
